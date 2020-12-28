@@ -9,6 +9,7 @@ import {
 import { Home } from "./components/Home";
 import { About } from "./components/About";
 import { Colors } from "./components/Colors";
+import {NotFound} from "./components/NotFound";
 
 function App() {
   
@@ -26,8 +27,9 @@ function App() {
 
         <Switch>
           <Route path="/" exact component={Home}></Route>
-          <Route path="/about" component={About}></Route>
-          <Route path="/colors/:colorCode" component={Colors}></Route>
+          <Route path="/about"  exact component={About}></Route>
+          <Route path="/colors/:colorCode" exact component={Colors}></Route>
+          <Route  component ={NotFound}> </Route>
         </Switch>
       </div>
     </Router>
