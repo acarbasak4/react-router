@@ -1,3 +1,6 @@
 import React from 'react';
 
-export const Colors =()=> <div>Colors Component</div>
+export const Colors =({match: {params}})=> {
+    
+    return <div style={{background: `#${params.colorCode}` }}>Colors Component</div>
+}

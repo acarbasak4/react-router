@@ -11,19 +11,23 @@ import { About } from "./components/About";
 import { Colors } from "./components/Colors";
 
 function App() {
+  
+  const colorCodes = ["548","676","495","838","498"];
   return (
     <Router>
       <div className="App">
         <nav>
           <NavLink to="/"  exact activeStyle={{fontWeight:"bold", color:"yellow"}} >Home</NavLink>
           <NavLink to="/about" exact activeStyle={{fontWeight:"bold", color:"green"}}>About</NavLink>
-          <NavLink to="/colors" exact activeStyle={{fontWeight:"bold", color:"red"}}>Colors</NavLink>
-        </nav>
+          {colorCodes.map((code,index) => 
+            <NavLink key={index} to={`/colors/${code}`}  activeStyle={{fontWeight:"bold", color:"red"}}>Colors</NavLink>
+           )}
+       </nav>
 
         <Switch>
           <Route path="/" exact component={Home}></Route>
           <Route path="/about" component={About}></Route>
-          <Route path="/colors" component={Colors}></Route>
+          <Route path="/colors/:colorCode" component={Colors}></Route>
         </Switch>
       </div>
     </Router>
