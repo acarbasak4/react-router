@@ -1,6 +1,11 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  NavLink,
+} from "react-router-dom";
 import { Home } from "./components/Home";
 import { About } from "./components/About";
 import { Colors } from "./components/Colors";
@@ -10,19 +15,9 @@ function App() {
     <Router>
       <div className="App">
         <nav>
-          <ul className="nav-links">
-            <li>
-              <Link to={"/"}>Home</Link>
-            </li>
-
-            <li>
-              <Link to={"/about"}>About</Link>
-            </li>
-
-            <li>
-              <Link to={"/colors"}>Colors</Link>
-            </li>
-          </ul>
+          <NavLink to="/"  exact activeStyle={{fontWeight:"bold", color:"yellow"}} >Home</NavLink>
+          <NavLink to="/about" exact activeStyle={{fontWeight:"bold", color:"green"}}>About</NavLink>
+          <NavLink to="/colors" exact activeStyle={{fontWeight:"bold", color:"red"}}>Colors</NavLink>
         </nav>
 
         <Switch>
